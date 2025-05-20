@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/create-ts-mcp-server.svg)](https://www.npmjs.com/package/create-ts-mcp-server)
+
 # MCP Server Scaffolding Tool
 
 A command - line tool for quickly creating standardized MCP (Model Context Protocol) servers using Node.js
