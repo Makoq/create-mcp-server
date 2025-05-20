@@ -1,6 +1,6 @@
 {
-  "name": "@ad/create-mcp-server",
-  "version": "0.0.10",
+  "name": "@mcpts/create-mcp-server",
+  "version": "0.0.1",
   "description": "CLI tool to create new MCP servers",
   "type": "module",
   "scripts": {
