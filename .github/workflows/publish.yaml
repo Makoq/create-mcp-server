@@ -17,7 +17,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
 
       - run: npm install
-      - run: npm run build  # 如果你有构建步骤
+      - run: npm run build  # 如果有构建步骤
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
