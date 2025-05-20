@@ -1,63 +1,63 @@
-# MCP 服务器脚手架工具
+# MCP Server Scaffolding Tool
 
-通过Node.js快速创建标准化MCP（Model Context Protocol）服务器的命令行工具
+A command - line tool for quickly creating standardized MCP (Model Context Protocol) servers using Node.js
 
-## 快速开始
+## Quick Start
 ```bash
 npx @ad/create-mcp-server te your-mcp-server-name
 ```
 
-## ✨ 功能特性
-- 🛠️ 交互式配置 - 提供友好的命令行交互界面
-- 📦 多层级API支持 - 同时支持High-Level和Low-Level API开发
-- ⚡ 极速生成 - 基于模板引擎的快速项目生成
-- 🔧 智能配置 - 自动生成package.json和TypeScript配置
-## 🚀 使用指南
-### 创建项目
+## ✨Features
+🛠️ Interactive Configuration - Provides a user - friendly command - line interactive interface
+📦 Multi - level API Support - Supports both High - Level and Low - Level API development
+⚡ Rapid Generation - Fast project generation based on a template engine
+🔧 Intelligent Configuration - Automatically generates package.json and TypeScript configurations
+🚀 Usage Guide
+### Create a Project
 ```bash
 
-# 通过npx直接创建
+# by npx
 
 npx @ad/create-mcp-server your-server-name
 
-# 或全局安装后使用
+# or by npm
 
 npm install -g @ad/create-mcp-server
 
 create-mcp-server your-server-name
 ```
-### 开发命令
+### command
 ```bash
 cd your-server-name
 
-npm install # 安装依赖
+npm install # install dependencies
 
-npm run build # 编译项目
+npm run build # build project
 
-npm run watch # 开发模式（监听文件变化）
 ```
-### 目录结构
-生成的典型项目结构：
+### Directory Structure
+The typical project structure generated is as follows:
 ```
 your-server-name/
 ├── src/
-│   ├── index.ts     # 服务入口文件
-├── test/             # 测试用例
+│   ├── index.ts      # Service entry file
+├── test/             
 ├── package.json
 └── tsconfig.json
 ```
-## 📚 API级别说明
+## 📚 API Level Explanation
 ### High-Level API
-适用场景 ：快速开发标准服务 特点 ：
+Use cases: Rapid development of standard services Features:
 
-- 预置常用中间件
-- 自动错误处理
-- 标准化路由配置
-- 开箱即用的RESTful支持
-示例：
+Pre-configured common middleware
+Automatic error handling
+Standardized routing configuration
+Out-of-the-box RESTful support
+
+Example:
 
 ```typescript
-// 快速创建服务实例
+// Quickly create a service instance
 server.tool(
   "calculate-bmi",
   {
@@ -73,13 +73,14 @@ server.tool(
 );
 ```
 ### Low-Level API
-适用场景 ：需要深度定制的场景 特点 ：
+Use cases: Scenarios requiring deep customization Features:
 
-- 完全控制请求生命周期
-- 手动管理中间件链
-- 自定义协议处理
-- 底层性能优化
-示例：
+Full control over the request lifecycle
+Manual management of the middleware chain
+Custom protocol handling
+Low-level performance optimization
+
+Example:
 
 ```typescript
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
