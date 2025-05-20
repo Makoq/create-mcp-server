@@ -6,7 +6,7 @@ A command - line tool for quickly creating standardized MCP (Model Context Proto
 
 ## Quick Start
 ```bash
-npx @ad/create-mcp-server te your-mcp-server-name
+npx create-ts-mcp-server your-mcp-server-name
 ```
 
 ## ✨Features
@@ -20,11 +20,11 @@ npx @ad/create-mcp-server te your-mcp-server-name
 
 # by npx
 
-npx @ad/create-mcp-server your-server-name
+npx create-ts-mcp-server your-server-name
 
 # or by npm
 
-npm install -g @ad/create-mcp-server
+npm install -g create-ts-mcp-server
 
 create-mcp-server your-server-name
 ```
