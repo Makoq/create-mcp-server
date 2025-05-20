@@ -1,0 +1,37 @@
+{
+  "name": "@ad/create-mcp-server",
+  "version": "0.0.10",
+  "description": "CLI tool to create new MCP servers",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && shx chmod +x build/index.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch"  
+  },
+  "bin": {
+    "create-mcp-server": "build/index.js"
+  },
+  "files": [
+    "build",
+    "template"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.11.4",
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "ejs": "^3.1.9",
+    "inquirer": "^9.2.15",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.11.24",
+    "shx": "^0.3.4",
+    "typescript": "^5.3.3",
+    "vitest": "^3.1.3"
+  }
+}
