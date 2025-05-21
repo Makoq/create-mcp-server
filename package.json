@@ -1,6 +1,6 @@
 {
   "name": "create-ts-mcp-server",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "CLI tool to create new MCP servers",
   "type": "module",
   
@@ -24,7 +24,7 @@
     "build",
     "template"
   ],
-  "keywords": [],
+  "keywords": ["mcp","modelcontextprotocol", "@modelcontextprotocol/sdk","mcp server","create mcp", "cli","typescript"],
   "author": "",
   "license": "ISC",
   "dependencies": {
