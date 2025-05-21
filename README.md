@@ -4,11 +4,6 @@
 
 A command - line tool for quickly creating standardized MCP (Model Context Protocol) servers using Node.js
 
-## Quick Start
-```bash
-npx create-ts-mcp-server your-mcp-server-name
-```
-
 ## ✨Features
 🛠️ Interactive Configuration 
 - Provides a user 
@@ -26,6 +21,13 @@ npx create-ts-mcp-server your-mcp-server-name
 🔧 Intelligent Configuration 
 - Automatically generates package.json and TypeScript configurations
 
+## Quick Start
+```bash
+npx create-ts-mcp-server your-mcp-server-name
+```
+
+
+
 ## 🚀 Usage Guide
 ### Create a Project
 ```bash
@@ -34,11 +36,6 @@ npx create-ts-mcp-server your-mcp-server-name
 
 npx create-ts-mcp-server your-server-name
 
-# or by npm
-
-npm install -g create-ts-mcp-server
-
-create-mcp-server your-server-name
 ```
 ### Initialization Steps of CLI 
 ```
@@ -58,7 +55,7 @@ create-mcp-server your-server-name
 Next steps:
   cd your-mcp-server-name
   npm install
-  npm run build  # or: npm run watch
+  npm run build  #  build your server first
   npm run inspector # debug your server
 ```
 
