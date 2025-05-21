@@ -1,6 +1,6 @@
 {
   "name": "create-ts-mcp-server",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "CLI tool to create new MCP servers",
   "type": "module",
   
@@ -9,6 +9,14 @@
     "prepare": "npm run build",
     "watch": "tsc --watch"  
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Makoq/create-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Makoq/create-mcp-server/issues"
+  },
+  "homepage": "https://github.com/Makoq/create-mcp-server#readme",
   "bin": {
     "create-mcp-server": "build/index.js"
   },
