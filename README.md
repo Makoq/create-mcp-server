@@ -28,6 +28,29 @@ npm install -g create-ts-mcp-server
 
 create-mcp-server your-server-name
 ```
+### steps
+```
+# config your project name
+? What is the name of your MCP (Model Context Protocol) server? (your-mcp-server-name)
+# config your project description
+? What is the description of your server? (A Model Context Protocol server)
+# @modelcontextprotocol/sdk API level，High-Level upper layer encapsulation of simple and easy-to-use API (suitable for most simple scenarios, more recommended), Low-Level API for underlying detail processing is suitable for complex scenarios
+? What is the API level of your server?
+ High-Level use (Recommended): It is a commonly used and encapsulated interface for developers. It shields many complex details, is easy to use, and is suitable for most scenarios.
+ Low-Level use: It is a low-level interface, which is suitable for developers who need to customize the implementation details. (Use arrow keys)
+❯ High-Level API
+  Low-Level API
+# success message
+✔ MCP server created successfully!
+
+Next steps:
+  cd your-mcp-server-name
+  npm install
+  npm run build  # or: npm run watch
+  npm run inspector # debug your server
+```
+
+
 ### command
 ```bash
 cd your-server-name
