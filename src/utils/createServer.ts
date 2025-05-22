@@ -42,6 +42,16 @@ export async function createServer(directory: string, options: any = {}) {
       ],
       when: !options.level,
     },
+    {
+      type: "list",
+      name: "transport",
+      message: "What is the transport type of your server?\n Standard Input/Output (stdio):The stdio transport enables communication through standard input and output streams. This is particularly useful for local integrations and command-line tools.\n Server-Sent Events (SSE):SSE transport enables server-to-client streaming with HTTP POST requests for client-to-server communication.",
+      choices:[
+        "Standard Input/Output (stdio)",
+        "Server-Sent Events (SSE)"
+      ],
+      when: !options.transport,
+    }
   ];
 
   const answers = await inquirer.prompt(questions);
@@ -49,6 +59,7 @@ export async function createServer(directory: string, options: any = {}) {
     name: options.name || answers.name,
     description: options.description || answers.description,
     level: options.level || answers.level,
+    transport: options.transport || answers.transport,
   };
   const spinner = ora("Creating MCP server...").start();
 
@@ -68,6 +79,7 @@ export async function createServer(directory: string, options: any = {}) {
           ? `.${(file.slice(8) as string).replace(".ejs", "")}`
           : (file as string).replace(".ejs", "")
       );
+   
       const targetDir = path.dirname(targetPath);
       // Create subdirectories if needed
       fs.mkdirSync(targetDir, { recursive: true });
@@ -77,7 +89,7 @@ export async function createServer(directory: string, options: any = {}) {
       // Use EJS to render the template
       content = ejs.render(content, config);
 
-      // Write processed file
+      // shake files
       if(file.includes(".ejs")){
         if(config.level === "Low-Level API"&& file.includes("high.ts.ejs")){
           continue;
@@ -85,11 +97,24 @@ export async function createServer(directory: string, options: any = {}) {
         if(config.level === "High-Level API"&& file.includes("low.ts.ejs")){
           continue;
         }
+        if(config.transport === "Standard Input/Output (stdio)"&& file.includes("sse.ts.ejs")){
+          continue;
+        }
+        if(config.transport === "Server-Sent Events (SSE)"&& file.includes("stdio.ts.ejs")){
+          continue;
+        }
       }
-      fs.writeFileSync(targetPath, content);
 
-      if(file.includes("high")||file.includes("low")){
-        fs.renameSync(targetPath,targetPath.replace(/(high|low)/,"index"))
+      // Write processed file
+      fs.writeFileSync(targetPath, content);
+      // rename files
+      const lowOrHigh = new RegExp(/(high|low)/)
+      if(lowOrHigh.test(file as string)){
+        fs.renameSync(targetPath,targetPath.replace(lowOrHigh,"server"))
+      }
+      const sseOrStdio = new RegExp(/(sse|stdio)/)
+      if(sseOrStdio.test(file as string)){
+        fs.renameSync(targetPath,targetPath.replace(sseOrStdio,"index"))
       }
     }
 
@@ -110,8 +135,8 @@ export async function createServer(directory: string, options: any = {}) {
       )
     );
   } catch (e) {
-    // spinner.fail(chalk.red("Failed to create MCP server"));
-    console.log(e);
+    spinner.fail(chalk.red("Failed to create MCP server"));
+    console.error(e);
     process.exit(1);
   }
 }
