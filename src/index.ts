@@ -9,6 +9,7 @@ const program = new Command()
     .option("-n, --name <name>", "Name of the server")
     .option("-d, --description <description>", "Description of the server")
     .option("-lv, --level <level>", "API level of the server")
+    .option("-t, --transport <transport>", "Transport type of the server")
     .action(createServer);
 
 program.parse();

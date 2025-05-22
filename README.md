@@ -21,19 +21,11 @@ A command - line tool for quickly creating standardized MCP (Model Context Proto
 🔧 Intelligent Configuration 
 - Automatically generates package.json and TypeScript configurations
 
-## Quick Start
-```bash
-npx create-ts-mcp-server your-mcp-server-name
-```
-
-
-
-## 🚀 Usage Guide
+## 🚀 Quick Start
 ### Create a Project
 ```bash
 
 # by npx
-
 npx create-ts-mcp-server your-server-name
 
 ```
@@ -49,6 +41,15 @@ npx create-ts-mcp-server your-server-name
  Low-Level use: It is a low-level interface, which is suitable for developers who need to customize the implementation details. (Use arrow keys)
 ❯ High-Level API
   Low-Level API
+# config your server transport type
+? What is the transport type of your server?
+ Standard Input/Output (stdio):The stdio transport enables communication through standard
+input and output streams. This is particularly useful for local integrations and command-line
+ tools.
+ Server-Sent Events (SSE):SSE transport enables server-to-client streaming with HTTP POST
+requests for client-to-server communication. 
+❯ Standard Input/Output (stdio)
+  Server-Sent Events (SSE)
 # success message
 ✔ MCP server created successfully!
 
@@ -68,7 +69,9 @@ npm install # install dependencies
 
 npm run build # build project
 
-npm run inspector # debug your server
+npm run inspector # stdio: type debug your server
+
+npx tsx ./src/index.ts # sse: run your sse server
 
 ```
 ### Directory Structure
@@ -76,8 +79,9 @@ The typical project structure generated is as follows:
 ```
 your-server-name/
 ├── src/
-│   ├── index.ts      # Service entry file
-├── test/             
+│   ├── server     
+│       ├── server.ts # mcp server
+│   ├── index.ts      # Service entry file
 ├── package.json
 └── tsconfig.json
 ```
